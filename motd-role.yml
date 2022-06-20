@@ -1,0 +1,12 @@
+---
+- name: use motd role in this playbook
+  hosts: 172.31.14.46
+  become: true
+#become_method=sudo
+#  become_user: root
+
+  roles:
+  - role: motd
+    #system_manager: jmoore1@jmoore1.com
+
+
