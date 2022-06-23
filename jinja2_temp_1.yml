@@ -4,6 +4,7 @@
   gather_facts: false
   vars:
     my_name: JaGadeesh KumAr
+    my_list: [1,2,3,4,5,6,5,3,7,1,9]
   
   tasks:
   - name: print the name
@@ -22,3 +23,13 @@
   - name: print name using default filters
     debug:
        msg: "My name is {{ my_name }} {{ last_name | default('Moore') }}"
+  
+  - name: print using list and set
+    debug:
+       msg:
+         - "Highest value - {{ my_list | max }}"
+         - "Lowest value - {{ my_list | min }}"
+         - "Unique value - {{ my_list | unique }}"
+         - "random value - {{ my_list | random }}"
+         - "join the values - {{ my_list | join('+') }}"
+
