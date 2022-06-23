@@ -21,4 +21,4 @@
   
   - name: print name using default filters
     debug:
-       msg: "My name is {{ my_name }} {{ last_name }}"
+       msg: "My name is {{ my_name }} {{ last_name | default('Moore') }}"
