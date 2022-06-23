@@ -12,11 +12,12 @@
   
   - name: print name with built in filters
     debug:
-       - msg: "My name is {{ my_name }}"
-       - msg: "My name is {{ my_name | lower }}"
-       - msg: "My name is {{ my_name | upper }}"
-       - msg: "My name is {{ my_name | capitalize}}"
-       - msg: "My name is {{ my_name | title }}"
+       msg:
+         - "My name is {{ my_name }}"
+         - "My name is {{ my_name | lower }}"
+         - "My name is {{ my_name | upper }}"
+         - "My name is {{ my_name | capitalize}}"
+         - "My name is {{ my_name | title }}"
   
   - name: print name using default filters
     debug:
