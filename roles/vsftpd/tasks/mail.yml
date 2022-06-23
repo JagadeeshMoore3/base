@@ -1,0 +1,12 @@
+---
+# task to install vsftpd
+- name: Install vsftpd
+  yum:
+    name: vsftpd
+    state: latest
+
+- name: use jinja2 template to configure vsftpd
+  template:
+    src: vsftpd.j2
+    dest: /etc/vsftpd/vsftpd.conf
+  
