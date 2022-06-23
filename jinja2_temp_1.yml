@@ -5,6 +5,9 @@
   vars:
     my_name: JaGadeesh KumAr
     my_list: [1,2,3,4,5,6,5,3,7,1,9]
+    path1: "/opt/custom/data/bin/script.sh"
+    path2: 'D:\Users\deeprasa\PycharmProjects\testing.log'
+    path3: "~/jinja2_temp_1.yml"
   
   tasks:
   - name: print the name
@@ -32,4 +35,15 @@
          - "Unique value - {{ my_list | unique }}"
          - "random value - {{ my_list | random }}"
          - "join the values - {{ my_list | join('+') }}"
+
+  - name: filters dealing with pathnames
+    debug:
+       msg:
+         - "Linux Path: {{ path1 | dirname }} "
+         - "Windows Path: {{ path2 | win_dirname }}"
+         - "Linux script name: {{ path1 | basename }}"
+         - "Split the path: {{ path2 | win_splitdrive }}"
+         - "Windows Drive: {{ path2 | win_splitdrive | first }}"
+         - "Windows File name: {{ path2 | win_splitdrive | last }}"
+         - "Show full path: {{ path3 | expanduser }}"
 
