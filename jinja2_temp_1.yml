@@ -46,4 +46,5 @@
          - "Windows Drive: {{ path2 | win_splitdrive | first }}"
          - "Windows File name: {{ path2 | win_splitdrive | last }}"
          - "Show full path: {{ path3 | expanduser }}"
+         - "Windows file name: {{path2 | basename }}"
 
