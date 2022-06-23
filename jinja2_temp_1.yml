@@ -3,9 +3,21 @@
   hosts: localhost
   gather_facts: false
   vars:
-    my_name: Jagadeesh Kumar
+    my_name: JaGadeesh KumAr
   
   tasks:
   - name: print the name
     debug:
        msg: "My name is {{ my_name }}"
+  
+  - name: print name with built in filters
+    debug:
+       - msg: "My name is {{ my_name }}"
+       - msg: "My name is {{ my_name | lower }}"
+       - msg: "My name is {{ my_name | upper }}"
+       - msg: "My name is {{ my_name | capitalize}}"
+       - msg: "My name is {{ my_name | title }}"
+  
+  - name: print name using default filters
+    debug:
+       msg: "My name is {{ my_name }} {{ last_name }}"
