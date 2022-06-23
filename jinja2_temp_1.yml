@@ -1,0 +1,11 @@
+---
+- name: Data manipulation
+  hosts: localhost
+  gather_facts: false
+  vars:
+    my_name: Jagadeesh Kumar
+  
+  tasks:
+  - name: print the name
+    debug:
+       msg: "My name is {{ my_name }}"
