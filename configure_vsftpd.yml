@@ -1,7 +1,7 @@
 ---
 - name: Install and Configure vsftpd
   hosts: rhelserver
-  become: yes
+  become: true
   vars:
     anonymous_enable: yes
     local_enable: yes
@@ -9,5 +9,5 @@
     anon_upload_enable: yes
   
   roles:
-    - vsftpd
+     - vsftpd
 
