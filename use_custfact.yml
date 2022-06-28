@@ -1,0 +1,35 @@
+---
+- name: use custom facts role
+  hosts: web
+  become: true
+
+  roles:
+    - role: custfact
+
+  tasks:
+  - name: check whether  if files exists
+    stat:
+      path: "/etc/ansible/facts.d/python_version.fact"
+    register: file_exists_status
+
+  - name: If file exists
+    debug:
+      msg: "The file python_version.fact exists"
+    when: file_exists_status.stat.exists
+
+  - name: If file is missing
+    debug:
+      msg: "File does not exists, missing"
+    when: not file_exists_status.stat.exists
+
+  - name: make the .fact file executable
+    shell:
+      "chmod u+x /etc/ansible/facts.d/python_version.fact"
+    when: file_exists_status.stat.exists
+    register: shellcmd
+
+  - name: print the result of shell cmd
+    debug:
+      msg: "{{ shellcmd.stdout }}"
+
+

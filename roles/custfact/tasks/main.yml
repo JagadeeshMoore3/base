@@ -1,0 +1,18 @@
+---
+# tasks file for custfact
+
+- name: create directory fact.d
+  file:
+    path: /etc/ansible/facts.d
+    state: directory
+#    become: yes
+
+- name: copy the custom fact file
+  template:
+    src: ~/base/python_version.fact
+    dest: /etc/ansible/facts.d/
+    mode: 700
+    owner: ansible
+    group: ansible
+
+    
