@@ -17,12 +17,27 @@
   
   - name: print the file status
     debug:
-      msg: "{{ result.stat.exists }}"
+      msg: "conf file exists = {{ result.stat.exists }}"
 
   - name: remove config file
     file:
       path: /etc/vsftpd/vsftpd.conf
       state: absent
     when: result.stat.exists == true
+
+  - name: check if conf.bkp exists
+    stat:
+      path: /etc/vsftpd/vsftpd.conf.bkp
+    register: resultbkp
+  
+  - name: print the file status
+    debug:
+      msg: "conf.bkp exists = {{ resultbkp.stat.exists }}"
+
+  - name: remove conf bkp file
+    file:
+      path: /etc/vsftpd/vsftpd.conf.bkp
+      state: absent
+    when: resultbkp.stat.exists == true
 
   
