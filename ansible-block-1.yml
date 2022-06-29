@@ -14,7 +14,7 @@
             
       - name: list bin directory content 
         command: "ls -l /bin/"
-      #become: yes
+      become: yes
 
     - name: list ansible user's home dir content 
       command: "ls -l ~/"
