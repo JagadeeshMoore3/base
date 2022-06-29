@@ -1,0 +1,28 @@
+---
+- name: Uninstall VSFTPD from centos server
+  hosts: centosserver
+  gather_facts: false
+  become: yes
+
+  tasks:
+  - name: uninstall vsftpd
+    yum:
+      name: vsftpd
+      state: absent
+  
+  - name: check if conf exists
+    stat:
+      path: /etc/vsftpd/vsftpd.conf
+    register: result
+  
+  - name: print the file status
+    debug:
+      msg: result.stat.exists
+
+  - name: remove config file
+    file:
+      path: /etc/vsftpd/vsftpd.conf
+      state: absent
+    when: result.stat.exists == true
+
+  
