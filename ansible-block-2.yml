@@ -18,6 +18,7 @@
           msg: 
             - "Error occurred in block section"
             - "{{ root_error.stdout }}"
+            - "{{ root_error.stderr }}"
 
     always:
       - name: always run
@@ -26,3 +27,9 @@
       - name: list root partition content with become
         command: "ls -l /root/"
         become: yes
+        when: root_error | regex_search("Permission denied")
+
+      - name: list root partition content with become
+        command: "ls -l /root/"
+        become: yes
+        when: root_error | regex_search("Permission denied.....")
