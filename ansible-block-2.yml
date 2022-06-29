@@ -27,11 +27,11 @@
       - name: list root partition content with become
         command: "ls -l /root/"
         become: yes
-        when: 1 == 1
-        #when: root_error | regex_search("Permission denied")
+        #when: 1 == 1
+        when: root_error.stderr | regex_search("Permission denied")
 
       - name: list root partition content with become
         command: "ls -l /root/"
         become: yes
-        when: 1 == 2
-        #when: root_error | regex_search("Permission denied.....")
+        #when: 1 == 2
+        when: root_error.stderr | regex_search("Permission denied.....")
