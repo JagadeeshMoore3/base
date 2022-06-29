@@ -1,12 +1,9 @@
 # base
-
 # new file to test push
 
 #personal access token for git: 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
 
-# git push https://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@github.com/JagadeeshMoore03/base.git
-
-# git push https://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@github.com/JagadeeshMoore03/JagadeeshMoore3/base.git
+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
 
 git clone
 	username: git user

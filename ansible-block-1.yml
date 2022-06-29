@@ -1,0 +1,19 @@
+# blocks sample
+---
+- name: Ansible blocks
+  hosts: rhelserver
+  gather_facts: false
+
+  tasks:
+    - name: list usr directory contents
+      command: "ls -l /usr/"
+      become: yes
+    - name: list root partition content
+      command: "ls -l /root/"
+      become: yes
+    - name: list ansible user's home dir content 
+      command: "ls -l ~/"
+    - name: list bin directory content 
+      command: "ls -l /bin/"
+      become: yes
+  
