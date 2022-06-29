@@ -24,7 +24,7 @@
 
     - name: copy the config file from controller to managed node
       template:
-        src: /ansible/base/roles/vsftpd/templates/vsftpd.j2
+        src: /base/roles/vsftpd/templates/vsftpd.j2
         dest: /etc/vsftpd/vsftpd.conf
 
     - name: this will failure
