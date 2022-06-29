@@ -1,7 +1,7 @@
 ---
 - name: install vsftpd - use block, rescue, always
   hosts: centosserver
-  gather_facts: false
+  #gather_facts: false
   become: yes
   vars:
     anonymous_enable: yes
