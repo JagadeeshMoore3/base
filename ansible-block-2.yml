@@ -1,0 +1,25 @@
+---
+- name: Ansible blocks 2
+  hosts: rhelserver
+  gather_facts: false
+
+  tasks:
+  - block:
+    - name: list home dir content
+      command: "ls -l ~/"
+
+    - name: list root partition content
+      command: "ls -l /root/"
+      
+    rescue:
+      - name: run when failure occurs in block [rescue block]
+        debug:
+          msg: "Error occurred in block section"
+
+    always:
+      - name: always run
+        debug:
+          msg: "entered in always block"
+      - name: list root partition content with become
+        command: "ls -l /root/"
+        become: yes
