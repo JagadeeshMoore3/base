@@ -1,6 +1,6 @@
 ---
 - name: install vsftpd - use block, rescue, always
-  hosts: centoserver
+  hosts: centosserver
   gather_facts: false
   become: yes
   vars:
