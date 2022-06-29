@@ -10,11 +10,14 @@
 
     - name: list root partition content
       command: "ls -l /root/"
+      register: root_error
       
     rescue:
       - name: run when failure occurs in block [rescue block]
         debug:
-          msg: "Error occurred in block section"
+          msg: 
+            - "Error occurred in block section"
+            - {{ root_error.stdout }}
 
     always:
       - name: always run
