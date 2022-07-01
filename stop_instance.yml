@@ -1,0 +1,11 @@
+---
+- name: play to stop the ec2 instance
+  hosts: localhost
+  gather_facts: false
+  connection: local
+
+  tasks:
+  - ec2:
+    instance_ids: i-0ec3cde625f0ec6bf
+    region: ap-south-1
+    state: stopped
