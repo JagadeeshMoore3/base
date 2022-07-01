@@ -14,3 +14,5 @@
     debug:
       msg: "{{ item.instance_id }}"
     loop: "{{ inst_info.instances }}"
+    loop_control:
+      label: "{{ item.instance_id }}"
