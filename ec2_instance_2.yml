@@ -12,4 +12,5 @@
 
   - name: print the instances
     debug:
-      msg: "{{ inst_info.instance_id }}"
+      msg: "{{ item.instance_id }}"
+    loop: "{{ inst_info.instances }}"
