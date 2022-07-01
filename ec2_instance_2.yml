@@ -12,7 +12,7 @@
 
   - name: print the instances
     debug:
-      msg: "{{ item.instance_id }}"
+      msg: "instance id: {{ item.instance_id }} + public_dns: {{ item.public_dns_name }} "     
     loop: "{{ inst_info.instances }}"
     loop_control:
       label: "{{ item.instance_id }}"
