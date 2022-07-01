@@ -13,4 +13,6 @@
       key_name: ssh-1
       group: launch-wizard-1
       region: ap-south-1
+      wait: yes
+      
 
