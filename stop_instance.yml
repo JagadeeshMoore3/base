@@ -5,7 +5,8 @@
   connection: local
 
   tasks:
-  - ec2:
-    instance_ids: i-0ec3cde625f0ec6bf
-    region: ap-south-1
-    state: stopped
+  - name: stop ec2 instance using instance id
+    ec2:
+      instance_ids: i-0ec3cde625f0ec6bf
+      region: ap-south-1
+      state: stopped
