@@ -10,9 +10,9 @@
       instance_type: t2.micro
       image: ami-05c8ca4485f8b138a
       count: 1
-      key_name: ssh-1
+      key_name: rhelawskey
       group: launch-wizard-1
       region: ap-south-1
       wait: yes
-      
+
 
